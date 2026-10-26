@@ -31,10 +31,14 @@ AUTHOR: Lemuel Waye Otoo-Biney
 ---------------------------------------------------------------------------------------
 SQL QUERY
 ---------
+* Create a database “company_db
+* Connect to your company database.
+
 postgres=# CREATE DATABASE company_db;
 CREATE DATABASE
 postgres=# \c company_db
 You are now connected to database "company_db" as user "postgres".
+
 company_db=# CREATE TABLE employees(
 company_db(# employee_id SERIAL PRIMARY KEY,
 company_db(# first_name VARCHAR(25) NOT NULL,
@@ -42,6 +46,9 @@ company_db(# last_name VARCHAR(25) NOT NULL,
 company_db(# salary NUMERIC(10, 2)
 company_db(# );
 CREATE TABLE
+
+* Insert Records: Add at least 3 new employee records into your employees table using the INSERT command.
+
 company_db=# INSERT INTO employees(employee_id, first_name, last_name, salary) VALUES
 company_db-# (001, 'Lemuel', 'Otoo-Biney', 15000);
 INSERT 0 1
@@ -54,6 +61,9 @@ INSERT 0 1
 company_db=# INSERT INTO employees(employee_id, first_name, last_name, salary) VALUES
 company_db-# (004, 'John', 'Doe', 25000);
 INSERT 0 1
+
+* Query Records: Write a SELECT statement to retrieve all employees whose salary is above a specific threshold
+
 company_db=# SELECT * FROM employees WHERE salary > 20000.00;
  employee_id | first_name | last_name |  salary
 -------------+------------+-----------+----------
@@ -71,6 +81,7 @@ company_db=# SELECT * FROM employees;
            4 | John       | Doe        | 25000.00
 (4 rows)
 
+* Update & Delete: Update one employee's salary using their ID, and delete another employee record.
 
 company_db=# UPDATE employees
 company_db-# SET salary = 30000.00
